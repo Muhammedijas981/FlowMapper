@@ -1,12 +1,7 @@
 import * as cheerio from 'cheerio';
 import { resolveUrl } from './urlUtils.js';
 
-/**
- * Parse HTML content and extract page information
- * @param {string} html - HTML content
- * @param {string} baseUrl - Base URL for resolving relative links
- * @returns {Object} - Parsed page data
- */
+//Parse HTML content and extract page information
 export function parseHTML(html, baseUrl) {
   const $ = cheerio.load(html);
   
@@ -17,11 +12,7 @@ export function parseHTML(html, baseUrl) {
   };
 }
 
-/**
- * Extract page title from HTML
- * @param {CheerioAPI} $ - Cheerio instance
- * @returns {string} - Page title
- */
+//Extract page title from HTML
 export function extractPageTitle($) {
   // Try multiple sources for title
   let title = $('title').first().text().trim();
@@ -37,12 +28,7 @@ export function extractPageTitle($) {
   return title || 'Untitled Page';
 }
 
-/**
- * Extract all links from HTML with context information
- * @param {CheerioAPI} $ - Cheerio instance
- * @param {string} baseUrl - Base URL for resolving relative links
- * @returns {Array} - Array of link objects with context
- */
+//Extract all links from HTML with context information
 export function extractLinks($, baseUrl) {
   const links = [];
   const seen = new Set();
@@ -77,12 +63,7 @@ export function extractLinks($, baseUrl) {
   return links;
 }
 
-/**
- * Analyze the context of a link element to determine its importance
- * @param {CheerioAPI} $ - Cheerio instance
- * @param {Element} element - Link element
- * @returns {Object} - Context information
- */
+//Analyze the context of a link element to determine its importance
 export function analyzeLinkContext($, element) {
   const $element = $(element);
   
@@ -114,11 +95,7 @@ export function analyzeLinkContext($, element) {
   };
 }
 
-/**
- * Classify page type based on HTML structure and content
- * @param {CheerioAPI} $ - Cheerio instance
- * @returns {string} - Page type: 'entry', 'content', or 'utility'
- */
+//Classify page type based on HTML structure and content
 export function getPageType($) {
   // Check for common utility page indicators
   const title = $('title').text().toLowerCase();

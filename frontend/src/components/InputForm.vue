@@ -195,7 +195,7 @@ export default {
 
 .text-input {
   padding: 10px 12px;
-  border: 1px solid #d1d5db; /* Gray-300 */
+  border: 1px solid #d1d5db; 
   border-radius: 4px;
   font-size: 1rem;
   outline: none;
@@ -204,7 +204,7 @@ export default {
 }
 
 .text-input:focus {
-  border-color: #2563eb; /* Blue-600 */
+  border-color: #2563eb; 
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
@@ -215,7 +215,7 @@ export default {
 }
 
 .btn-primary {
-  background-color: #1d4ed8; /* Blue-700 matching reference */
+  background-color: #1d4ed8; 
   color: white;
   padding: 10px;
   border: none;
@@ -228,7 +228,7 @@ export default {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1e40af; /* Blue-800 */
+  background-color: #1e40af; 
 }
 
 .btn-primary:disabled {
@@ -238,7 +238,7 @@ export default {
 
 .divider {
   height: 1px;
-  background-color: #e5e7eb; /* Gray-200 */
+  background-color: #e5e7eb; 
   margin: 4px 0;
 }
 
@@ -248,7 +248,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 8px 12px;
-  background: #f3f4f6; /* Gray-100 */
+  background: #f3f4f6; 
   border: 1px solid #e5e7eb;
   border-radius: 4px;
   color: #374151;

@@ -36,8 +36,8 @@ app.post('/api/crawl', async (req, res) => {
     
     // Set reasonable defaults and limits
     const options = {
-      maxDepth: Math.min(maxDepth || 3, 5), // Cap at 5 levels
-      maxPages: Math.min(maxPages || 50, 100), // Cap at 100 pages
+      maxDepth: Math.min(maxDepth || 3, 5), 
+      maxPages: Math.min(maxPages || 50, 100), 
       auth: auth || null,
       timeout: 10000
     };

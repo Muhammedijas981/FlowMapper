@@ -2,12 +2,8 @@ import axios from 'axios';
 import { parseHTML } from './parser.js';
 import { normalizeUrl, isSameDomain, isValidUrl } from './urlUtils.js';
 
-/**
- * Crawl a website starting from a given URL
- * @param {string} startUrl - The URL to start crawling from
- * @param {Object} options - Crawl configuration options
- * @returns {Promise<Object>} - Crawl results with pages and links
- */
+// Crawl a website starting from a given URL
+
 export async function crawlWebsite(startUrl, options = {}) {
   const {
     maxDepth = 3,
@@ -88,13 +84,7 @@ export async function crawlWebsite(startUrl, options = {}) {
   };
 }
 
-/**
- * Fetch a page's HTML content
- * @param {string} url - URL to fetch
- * @param {Object} auth - Optional authentication credentials
- * @param {number} timeout - Request timeout in milliseconds
- * @returns {Promise<string>} - HTML content
- */
+// Fetch a page's HTML content
 export async function fetchPage(url, auth = null, timeout = 10000) {
   const config = {
     timeout,
@@ -115,15 +105,8 @@ export async function fetchPage(url, auth = null, timeout = 10000) {
   return response.data;
 }
 
-/**
- * Determine if a URL should be crawled
- * @param {string} url - URL to check
- * @param {Set} visited - Set of visited URLs
- * @param {number} currentDepth - Current crawl depth
- * @param {number} maxPages - Maximum pages to crawl
- * @param {number} currentPageCount - Current number of pages crawled
- * @returns {boolean} - True if should crawl
- */
+// Determine if a URL should be crawled
+
 export function shouldCrawl(url, visited, currentDepth, maxPages, currentPageCount) {
   // Don't crawl if already visited
   if (visited.has(url)) {

@@ -1,10 +1,6 @@
 // URL utility functions shared between frontend and backend
+//Normalize a URL by removing fragments, trailing slashes, and converting to lowercase
 
-/**
- * Normalize a URL by removing fragments, trailing slashes, and converting to lowercase
- * @param {string} url - The URL to normalize
- * @returns {string} - Normalized URL
- */
 export function normalizeUrl(url) {
   try {
     const urlObj = new URL(url);
@@ -20,12 +16,8 @@ export function normalizeUrl(url) {
   }
 }
 
-/**
- * Check if two URLs belong to the same domain
- * @param {string} url1 - First URL
- * @param {string} url2 - Second URL
- * @returns {boolean} - True if same domain
- */
+//Check if two URLs belong to the same domain
+
 export function isSameDomain(url1, url2) {
   try {
     const domain1 = new URL(url1).hostname;
@@ -36,11 +28,8 @@ export function isSameDomain(url1, url2) {
   }
 }
 
-/**
- * Validate if a string is a valid URL
- * @param {string} url - The URL to validate
- * @returns {boolean} - True if valid URL
- */
+//Validate if a string is a valid URL
+
 export function isValidUrl(url) {
   try {
     new URL(url);
@@ -50,11 +39,8 @@ export function isValidUrl(url) {
   }
 }
 
-/**
- * Extract the base domain from a URL
- * @param {string} url - The URL to extract domain from
- * @returns {string} - The domain (e.g., "example.com")
- */
+//Extract the base domain from a URL
+
 export function extractDomain(url) {
   try {
     return new URL(url).hostname;
@@ -63,12 +49,8 @@ export function extractDomain(url) {
   }
 }
 
-/**
- * Convert relative URL to absolute URL
- * @param {string} relativeUrl - Relative URL
- * @param {string} baseUrl - Base URL to resolve against
- * @returns {string} - Absolute URL
- */
+//Convert relative URL to absolute URL
+
 export function resolveUrl(relativeUrl, baseUrl) {
   try {
     return new URL(relativeUrl, baseUrl).href;

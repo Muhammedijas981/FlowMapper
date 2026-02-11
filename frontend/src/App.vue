@@ -105,7 +105,6 @@ export default {
 </script>
 
 <style>
-/* Global Reset for this component context */
 * {
   box-sizing: border-box;
 }
@@ -113,8 +112,7 @@ export default {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #f3f4f6; /* Gray-100 background for whole app */
-  color: #1f2937; /* Gray-800 text */
+  background-color: #f3f4f6; 
 }
 
 .app-container {
@@ -126,8 +124,8 @@ body {
 /* Sidebar Styling */
 .sidebar {
   width: 300px;
-  background-color: white; /* White sidebar */
-  border-right: 1px solid #e5e7eb; /* Border separator */
+  background-color: white; 
+  border-right: 1px solid #e5e7eb; 
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -155,7 +153,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f9fafb; /* Light gray main area */
+  background-color: #f9fafb; 
   position: relative;
 }
 

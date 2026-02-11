@@ -10,9 +10,9 @@ export function transformForD3(backendGraph) {
   // Create a new directed graph
   const g = new dagre.graphlib.Graph();
   g.setGraph({ 
-    rankdir: 'LR', // Left-to-Right layout
-    nodesep: 50,   // horizontal space between nodes
-    ranksep: 80,   // vertical space between ranks
+    rankdir: 'LR', 
+    nodesep: 50,   
+    ranksep: 80, 
     marginx: 20,
     marginy: 20
   });
@@ -22,8 +22,8 @@ export function transformForD3(backendGraph) {
   nodes.forEach(node => {
     g.setNode(node.id, { 
       label: node.title,
-      width: 150,  // Fixed width for boxes
-      height: 50,  // Fixed height for boxes
+      width: 150, 
+      height: 50,
       type: node.type,
       isStart: node.isStart
     });

@@ -1,19 +1,10 @@
-/**
- * Intelligent noise reduction for user flow mapping
- * This is the core differentiator - reduces noise to show meaningful user flows
- */
+//Intelligent noise reduction for user flow mapping
+//This is the core differentiator - reduces noise to show meaningful user flows
 
-/**
- * Identify global navigation links that appear on most pages
- * These are typically header/footer links that don't represent user flows
- * @param {Object} crawlData - Raw crawl data with pages and links
- * @returns {Set} - Set of URLs that are global navigation
- */
 export function identifyGlobalNavigation(crawlData) {
   const { pages, links } = crawlData;
   const totalPages = pages.length;
   
-  // Count how many pages each link appears on
   const linkFrequency = new Map();
   
   // Group links by source page
@@ -33,7 +24,7 @@ export function identifyGlobalNavigation(crawlData) {
     }
   }
   
-  // Apply 70% threshold heuristic (FR-07 requirement)
+  // Apply 70% threshold heuristic 
   // Links appearing on >70% of pages are considered global navigation
   const globalLinks = new Set();
   const threshold = 0.70;
@@ -48,11 +39,8 @@ export function identifyGlobalNavigation(crawlData) {
   return globalLinks;
 }
 
-/**
- * Classify pages by type to filter out utility pages
- * @param {Array} pages - Array of page objects
- * @returns {Object} - Categorized pages
- */
+//Classify pages by type to filter out utility pages
+
 export function classifyPagesByType(pages) {
   const classified = {
     entry: [],
@@ -69,23 +57,18 @@ export function classifyPagesByType(pages) {
   return classified;
 }
 
-/**
- * Score links based on importance (context-based classification)
- * Primary links (from main content) are weighted higher than secondary links
- * @param {Array} links - Array of link objects with context
- * @returns {Array} - Links with importance scores
- */
+//Score links based on importance (context-based classification)
+//Primary links (from main content) are weighted higher than secondary links
 export function scoreLinks(links) {
   return links.map(link => {
     let score = 1;
     
-    // Boost primary content links
     if (link.context && link.context.type === 'primary') {
       score = 3;
     } else if (link.context && link.context.type === 'navigation') {
-      score = 0.5; // Lower score for nav links
+      score = 0.5;
     } else if (link.context && link.context.type === 'footer') {
-      score = 0.3; // Even lower for footer links
+      score = 0.3;
     }
     
     return {
@@ -95,12 +78,8 @@ export function scoreLinks(links) {
   });
 }
 
-/**
- * Build a clean, noise-reduced graph from crawl data
- * Applies all heuristics to create meaningful user flow representation
- * @param {Object} crawlData - Raw crawl data
- * @returns {Object} - Clean graph with nodes and edges
- */
+//Build a clean, noise-reduced graph from crawl data
+
 export function buildCleanGraph(crawlData) {
   const { pages, links, startUrl } = crawlData;
   
