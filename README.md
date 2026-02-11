@@ -85,6 +85,60 @@ The frontend will run on `http://localhost:5173`
    - **Move Nodes**: Drag individual nodes
    - **Hover**: View page titles and URLs
 
+### Example Server Log
+
+```
+Received crawl request: { startUrl: 'https://foreai.co/', maxDepth: 5, maxPages: 50 }
+Starting crawl from: https://foreai.co/
+Max depth: 5, Max pages: 50
+Crawling (depth 0): https://foreai.co/
+Crawling (depth 1): https://foreai.co/products/web
+Crawling (depth 1): https://foreai.co/products/mobile
+Crawling (depth 1): https://foreai.co/products/test-management
+Crawling (depth 1): https://foreai.co/products/integrations
+Crawling (depth 1): https://foreai.co/customers/finance
+Crawling (depth 1): https://foreai.co/customers/insurance
+Crawling (depth 1): https://foreai.co/customers/travel
+Crawling (depth 1): https://foreai.co/customers/media
+Crawling (depth 1): https://foreai.co/customers/retail
+Crawling (depth 1): https://foreai.co/customers/technology
+Crawling (depth 1): https://foreai.co/customers/saas
+Crawling (depth 1): https://foreai.co/about
+Crawling (depth 1): https://foreai.co/careers
+Crawling (depth 1): https://foreai.co/terms
+Crawling (depth 2): https://foreai.co/product
+Error crawling https://foreai.co/product: Request failed with status code 404
+Crawling (depth 2): https://foreai.co/demo
+Error crawling https://foreai.co/demo: Request failed with status code 404
+Crawling (depth 2): https://foreai.co/careers/customer-success-manager
+Crawling (depth 2): https://foreai.co/careers/full-stack-engineer
+Crawling (depth 2): https://foreai.co/careers/go-to-market-intern
+Crawling (depth 2): https://foreai.co/careers/ml-quality
+Crawling (depth 2): https://foreai.co/careers/product-ops-associate
+Crawling (depth 2): https://foreai.co/careers/software-engineer-infra
+Crawling (depth 2): https://foreai.co/careers/technical-solutions-engineer
+Crawl complete. Visited 22 pages.
+Building clean graph...
+Global nav detected: https://foreai.co/ (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/web (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/mobile (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/test-management (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/integrations (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/finance (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/insurance (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/travel (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/media (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/retail (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/technology (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/saas (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/about (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/careers (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/terms (appears on 22/22 pages = 100%)
+Page classification: 0 entry, 22 content, 0 utility
+Noise reduction: 361 raw links -> 9 clean links (98% reduction)   
+Graph built: 22 nodes, 9 edges
+```
+
 ## 🧠 Noise Reduction Approach
 
 The core differentiator of this application is intelligent noise reduction:
