@@ -14,8 +14,8 @@ const API_BASE_URL = 'http://localhost:3000/api';
 export async function startCrawl(config) {
   try {
     const response = await axios.post(`${API_BASE_URL}/crawl`, {
-      startUrl: config.url,
-      maxDepth: config.depth,
+      startUrl: config.startUrl,
+      maxDepth: config.maxDepth,
       maxPages: config.maxPages,
       auth: config.auth
     }, {

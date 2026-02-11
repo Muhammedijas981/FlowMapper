@@ -126,9 +126,12 @@ Utility pages (404, login, search) are filtered from the main flow visualization
 - **Cheerio**: Fast, jQuery-like HTML parsing
 - **Bare CSS + Flexbox**: Maximum control without framework overhead
 
-### Why Hybrid Architecture?
+### Why Hybrid Architecture? (Why Node.js?)
 
-Browser-based crawling faces CORS restrictions. A Node.js backend bypasses this limitation and enables crawling of real-world websites.
+1.  **CORS & Security Restrictions**: Browsers strictly block Cross-Origin Resource Sharing. A frontend running on `localhost:5173` cannot programmatically fetch HTML from `google.com` or `foreai.co`. A backend proxy is *mandatory* to bypass this limitation.
+2.  **Performance**: Parsing 100+ HTML pages, running heuristics, and calculating graph metrics is CPU-intensive. Offloading this to a Node.js server keeps the frontend UI responsive.
+3.  **Networking Capabilities**: Node.js has full raw socket access to handle redirects, SSL handshakes, and headers that browsers abstract away.
+4.  **Scalability**: A backend architecture allows for future potential features like saving crawl history, rate limiting across multiple users, or distributed crawling.
 
 ### Why D3.js over Pre-built Libraries?
 
