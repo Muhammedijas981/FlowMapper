@@ -1,6 +1,6 @@
 # Intelligent User Flow Mapper
 
-A smart web crawler that analyzes websites and produces clean, noise-reduced user flow diagrams. Built as a solution to Fore's assignment focusing on intelligent noise reduction and meaningful user navigation path extraction.
+A smart web crawler that analyzes websites and produces clean, noise-reduced user flow diagrams. Built as a solution to foreai assignment focusing on intelligent noise reduction and meaningful user navigation path extraction.
 
 ## 🎯 Project Overview
 
@@ -17,7 +17,7 @@ This application crawls websites and creates visual representations of user navi
 - **Interactive Visualization**: D3.js force-directed graph with zoom, pan, and drag
 - **Modern UI**: Clean, responsive interface with gradient design and real-time feedback
 
-## 🏗️ Architecture
+## Architecture
 
 **Hybrid Architecture**: Vue.js frontend + Node.js/Express backend
 
@@ -44,6 +44,13 @@ FlowMapper/
             ├── layout.css         # Flexbox layouts
             └── components.css     # Component styling
 ```
+
+### Why Hybrid Architecture? (Why Node.js?)
+
+1.  **CORS & Security Restrictions**: Browsers strictly block Cross-Origin Resource Sharing. A frontend running on `localhost:5173` cannot programmatically fetch HTML from `google.com` or `foreai.co`. A backend proxy is *mandatory* to bypass this limitation.
+2.  **Performance**: Parsing 100+ HTML pages, running heuristics, and calculating graph metrics is CPU-intensive. Offloading this to a Node.js server keeps the frontend UI responsive.
+3.  **Networking Capabilities**: Node.js has full raw socket access to handle redirects, SSL handshakes, and headers that browsers abstract away.
+4.  **Scalability**: A backend architecture allows for future potential features like saving crawl history, rate limiting across multiple users, or distributed crawling.
 
 ## 🚀 Installation & Setup
 
@@ -125,13 +132,6 @@ Utility pages (404, login, search) are filtered from the main flow visualization
 - **Express**: Lightweight backend for CORS bypass and server-side crawling
 - **Cheerio**: Fast, jQuery-like HTML parsing
 - **Bare CSS + Flexbox**: Maximum control without framework overhead
-
-### Why Hybrid Architecture? (Why Node.js?)
-
-1.  **CORS & Security Restrictions**: Browsers strictly block Cross-Origin Resource Sharing. A frontend running on `localhost:5173` cannot programmatically fetch HTML from `google.com` or `foreai.co`. A backend proxy is *mandatory* to bypass this limitation.
-2.  **Performance**: Parsing 100+ HTML pages, running heuristics, and calculating graph metrics is CPU-intensive. Offloading this to a Node.js server keeps the frontend UI responsive.
-3.  **Networking Capabilities**: Node.js has full raw socket access to handle redirects, SSL handshakes, and headers that browsers abstract away.
-4.  **Scalability**: A backend architecture allows for future potential features like saving crawl history, rate limiting across multiple users, or distributed crawling.
 
 ### Why D3.js over Pre-built Libraries?
 
@@ -226,8 +226,8 @@ Maximum limits (for safety):
 
 ## 👤 Author
 
-Built for Fore's Intelligent User Flow Mapper assignment.
+Built for foreai assignment.
 
 ---
 
-**Note**: This is an educational project demonstrating web crawling, graph algorithms, and data visualization. Always respect website terms of service and robots.txt when crawling.
+**Note**: This is an educational project demonstrating web crawling, graph algorithms, and data visualization. Always respect website terms of service when crawling.
