@@ -85,60 +85,6 @@ The frontend will run on `http://localhost:5173`
    - **Move Nodes**: Drag individual nodes
    - **Hover**: View page titles and URLs
 
-### Example Server Log
-
-```
-Received crawl request: { startUrl: 'https://foreai.co/', maxDepth: 5, maxPages: 50 }
-Starting crawl from: https://foreai.co/
-Max depth: 5, Max pages: 50
-Crawling (depth 0): https://foreai.co/
-Crawling (depth 1): https://foreai.co/products/web
-Crawling (depth 1): https://foreai.co/products/mobile
-Crawling (depth 1): https://foreai.co/products/test-management
-Crawling (depth 1): https://foreai.co/products/integrations
-Crawling (depth 1): https://foreai.co/customers/finance
-Crawling (depth 1): https://foreai.co/customers/insurance
-Crawling (depth 1): https://foreai.co/customers/travel
-Crawling (depth 1): https://foreai.co/customers/media
-Crawling (depth 1): https://foreai.co/customers/retail
-Crawling (depth 1): https://foreai.co/customers/technology
-Crawling (depth 1): https://foreai.co/customers/saas
-Crawling (depth 1): https://foreai.co/about
-Crawling (depth 1): https://foreai.co/careers
-Crawling (depth 1): https://foreai.co/terms
-Crawling (depth 2): https://foreai.co/product
-Error crawling https://foreai.co/product: Request failed with status code 404
-Crawling (depth 2): https://foreai.co/demo
-Error crawling https://foreai.co/demo: Request failed with status code 404
-Crawling (depth 2): https://foreai.co/careers/customer-success-manager
-Crawling (depth 2): https://foreai.co/careers/full-stack-engineer
-Crawling (depth 2): https://foreai.co/careers/go-to-market-intern
-Crawling (depth 2): https://foreai.co/careers/ml-quality
-Crawling (depth 2): https://foreai.co/careers/product-ops-associate
-Crawling (depth 2): https://foreai.co/careers/software-engineer-infra
-Crawling (depth 2): https://foreai.co/careers/technical-solutions-engineer
-Crawl complete. Visited 22 pages.
-Building clean graph...
-Global nav detected: https://foreai.co/ (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/products/web (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/products/mobile (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/products/test-management (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/products/integrations (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/finance (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/insurance (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/travel (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/media (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/retail (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/technology (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/customers/saas (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/about (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/careers (appears on 22/22 pages = 100%)
-Global nav detected: https://foreai.co/terms (appears on 22/22 pages = 100%)
-Page classification: 0 entry, 22 content, 0 utility
-Noise reduction: 361 raw links -> 9 clean links (98% reduction)   
-Graph built: 22 nodes, 9 edges
-```
-
 ## 🧠 Noise Reduction Approach
 
 The core differentiator of this application is intelligent noise reduction:
@@ -201,18 +147,64 @@ D3.js provides learning opportunities and full control over visualization, demon
 
 ### Example Test URLs
 
-- `https://example.com` - Simple static site
+- `https://foreai.co/` - Simple static site
 - Any small documentation site with clear navigation structure
 
-## 📊 Evaluation Criteria Alignment
+![FlowMapper Output Example](frontend/public/output.png)
 
-This implementation addresses Fore's evaluation criteria:
+### Example Server Log
 
-1. **Product Thinking**: Focus on noise reduction as key differentiator, not just crawling
-2. **Engineering Judgment**: Definitive architecture decisions (proxy server, D3.js) based on constraints
-3. **Reduce Complexity**: Multiple heuristics isolate concerns; 70% threshold makes logic testable
-4. **System Thinking**: Hybrid architecture addresses browser limitations; clear data flow
-5. **Code Quality**: Separation of concerns with services layer, detailed component structure
+```
+Received crawl request: { startUrl: 'https://foreai.co/', maxDepth: 5, maxPages: 50 }
+Starting crawl from: https://foreai.co/
+Max depth: 5, Max pages: 50
+Crawling (depth 0): https://foreai.co/
+Crawling (depth 1): https://foreai.co/products/web
+Crawling (depth 1): https://foreai.co/products/mobile
+Crawling (depth 1): https://foreai.co/products/test-management
+Crawling (depth 1): https://foreai.co/products/integrations
+Crawling (depth 1): https://foreai.co/customers/finance
+Crawling (depth 1): https://foreai.co/customers/insurance
+Crawling (depth 1): https://foreai.co/customers/travel
+Crawling (depth 1): https://foreai.co/customers/media
+Crawling (depth 1): https://foreai.co/customers/retail
+Crawling (depth 1): https://foreai.co/customers/technology
+Crawling (depth 1): https://foreai.co/customers/saas
+Crawling (depth 1): https://foreai.co/about
+Crawling (depth 1): https://foreai.co/careers
+Crawling (depth 1): https://foreai.co/terms
+Crawling (depth 2): https://foreai.co/product
+Error crawling https://foreai.co/product: Request failed with status code 404
+Crawling (depth 2): https://foreai.co/demo
+Error crawling https://foreai.co/demo: Request failed with status code 404
+Crawling (depth 2): https://foreai.co/careers/customer-success-manager
+Crawling (depth 2): https://foreai.co/careers/full-stack-engineer
+Crawling (depth 2): https://foreai.co/careers/go-to-market-intern
+Crawling (depth 2): https://foreai.co/careers/ml-quality
+Crawling (depth 2): https://foreai.co/careers/product-ops-associate
+Crawling (depth 2): https://foreai.co/careers/software-engineer-infra
+Crawling (depth 2): https://foreai.co/careers/technical-solutions-engineer
+Crawl complete. Visited 22 pages.
+Building clean graph...
+Global nav detected: https://foreai.co/ (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/web (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/mobile (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/test-management (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/products/integrations (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/finance (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/insurance (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/travel (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/media (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/retail (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/technology (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/customers/saas (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/about (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/careers (appears on 22/22 pages = 100%)
+Global nav detected: https://foreai.co/terms (appears on 22/22 pages = 100%)
+Page classification: 0 entry, 22 content, 0 utility
+Noise reduction: 361 raw links -> 9 clean links (98% reduction)   
+Graph built: 22 nodes, 9 edges
+```
 
 ## 🔧 Configuration
 
@@ -231,26 +223,6 @@ Maximum limits (for safety):
 - Max Depth: 5 levels
 - Max Pages: 100 pages
 - Timeout: 10 seconds per page
-
-## 🐛 Known Limitations
-
-- **JavaScript-Heavy SPAs**: Limited support for client-side rendered content
-- **Authentication**: Only basic auth supported (no OAuth/session-based)
-- **Rate Limiting**: No built-in rate limiting (may be blocked by some sites)
-- **Robots.txt**: Not currently respected (should be added for production)
-
-## 🚧 Future Enhancements
-
-- Respect robots.txt
-- Support for JavaScript rendering (Puppeteer/Playwright)
-- Export flow diagrams as images
-- Save/load previous crawls
-- Advanced filtering options
-- Performance optimization for large sites (1000+ pages)
-
-## 📝 License
-
-MIT
 
 ## 👤 Author
 
